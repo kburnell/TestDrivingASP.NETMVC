@@ -43,6 +43,16 @@ namespace TestDrivingMVC.Controller.Test.Unit {
         }
 
         [TestMethod]
+        public void IndexPost_ShouldRedirectTo_Step2() {
+            //Arrange
+            CustomerController controller = new CustomerController(_loggingServiceFake, _customerServiceFake);
+            //Act
+            ActionResult result = controller.Index(new Common.Domain.Customer {Id = 1});
+            //Assert
+            result.AssertActionRedirect().ToAction("Step2");
+        }
+
+        [TestMethod]
         public void Index_ShouldReturn_ViewWithModelofType_Customer_With_Idof_1_WhenPassed_1() {
             //Arrange
             // - Fake (No need to mock logging service)

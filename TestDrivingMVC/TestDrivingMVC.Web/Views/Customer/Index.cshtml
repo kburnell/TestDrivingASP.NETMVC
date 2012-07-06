@@ -2,10 +2,15 @@
 @{
     ViewBag.Title = "Customer Index";
 }
-<h2>@ViewBag.Title</h2>
-<strong>@Html.LabelFor(m => m.FirstName):</strong>
-@Html.DisplayFor(m => m.FirstName)<br/>
-<strong>@Html.LabelFor(m => m.LastName):</strong>
-@Html.DisplayFor(m => m.LastName)<br/>
-<strong>@Html.LabelFor(m => m.DateOfBirth):</strong>
-@Html.DisplayFor(m => m.DateOfBirth)
+@using(Html.BeginForm()) {
+    <h2>@ViewBag.Title</h2>
+    <strong>@Html.LabelFor(m => m.FirstName):</strong>
+    <label id="firstName">@Model.FirstName</label><br/>
+    <strong>@Html.LabelFor(m => m.LastName):</strong>
+    <label id="lastName">@Model.LastName</label><br/>
+    <strong>@Html.LabelFor(m => m.DateOfBirth):</strong>
+    <label id="dateOfBirth">@Model.DateOfBirth</label><br/>
+
+    <input type="submit" value="Next =>" id="next"/>
+
+}
