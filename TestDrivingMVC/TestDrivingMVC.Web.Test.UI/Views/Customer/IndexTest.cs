@@ -40,6 +40,8 @@ namespace TestDrivingMVC.Web.Test.UI.Views.Customer {
             browser.Button("next").Click();
             //Assert
             browser.Title.ShouldEqual("Step 2");
+            browser.Close();
+            browser.Dispose();
         }
 
     }
