@@ -8,13 +8,13 @@ namespace TestDrivingMVC.Common.Domain {
 
         public long Id { get; set; }
 
-        [Display(Name="First Name")]
+        [Required(ErrorMessage = "{0} is required"), Display(Name = "First Name")]
         public string FirstName { get; set; }
 
-        [Display(Name = "Last Name")]
+        [Required(ErrorMessage = "{0} is required"), Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        [Display(Name = "Date of Birth")]
+        [Required(ErrorMessage = "{0} is required"), Display(Name = "Date of Birth")]
         public DateTime DateOfBirth { get; set; }
 
     }

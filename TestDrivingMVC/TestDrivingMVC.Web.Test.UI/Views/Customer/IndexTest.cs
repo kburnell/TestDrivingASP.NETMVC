@@ -7,41 +7,43 @@ namespace TestDrivingMVC.Web.Test.UI.Views.Customer {
     [TestClass]
     public class IndexTest {
 
+        private const string Url = "http://localhost:11074/";
+        private IE _browser;
+
+        [TestCleanup]
+        public void TestCleanUp() {
+            _browser.Close();
+            _browser.Dispose();    
+        }
+
         [TestMethod]
         public void CustomerIndex_ShouldBeDisplayed_AsThe_DefaultPage() {
             //Arrange
-            string url = "http://localhost:11074/";
+            string expectedTitle = "Customer Index";
             //Act
-            IE browser = new IE(url);
+            _browser = new IE(Url);
             //Assert
-            browser.Title.ShouldEqual("Customer Index");
-            browser.Close();
-            browser.Dispose();
+            _browser.Title.ShouldEqual(expectedTitle);
         }
 
         [TestMethod]
         public void CustomerIndex_ShouldContain_DisplayFor_FirstName() {
-            //Arange
-            string url = "http://localhost:11074/";
-            //Act
-            IE browser = new IE(url);
+            //Arrange
+            _browser = new IE(Url);
+            Label result = _browser.Label("firstName");
             //Assert
-            browser.Label("firstName").Exists.ShouldBeTrue();
-            browser.Close();
-            browser.Dispose();
+            result.ShouldNotBeNull();
         }
 
         [TestMethod]
         public void Clicking_Next_ShouldDisplayThe_Step2Page() {
-            //Arange
-            string url = "http://localhost:11074/";
+            //Arrange
+            string expectedTitle = "Step 2";
+            _browser = new IE(Url);
             //Act
-            IE browser = new IE(url);
-            browser.Button("next").Click();
+            _browser.Button("next").Click();
             //Assert
-            browser.Title.ShouldEqual("Step 2");
-            browser.Close();
-            browser.Dispose();
+            _browser.Title.ShouldEqual(expectedTitle);
         }
 
     }

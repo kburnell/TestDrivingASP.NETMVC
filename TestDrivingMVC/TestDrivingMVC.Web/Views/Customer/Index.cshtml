@@ -2,14 +2,17 @@
 @{
     ViewBag.Title = "Customer Index";
 }
+<h2>@ViewBag.Title</h2>
+@Html.ActionLink("<< Create New Customer>>", "Create")
+<br/>
+<br/>
 @using(Html.BeginForm()) {
-    <h2>@ViewBag.Title</h2>
     <strong>@Html.LabelFor(m => m.FirstName):</strong>
     <label id="firstName">@Model.FirstName</label><br/>
     <strong>@Html.LabelFor(m => m.LastName):</strong>
     <label id="lastName">@Model.LastName</label><br/>
     <strong>@Html.LabelFor(m => m.DateOfBirth):</strong>
-    <label id="dateOfBirth">@Model.DateOfBirth</label><br/>
+    <label id="dateOfBirth">@Model.DateOfBirth</label><br/><br/>
 
     <input type="submit" value="Next =>" id="next"/>
 

@@ -28,5 +28,10 @@ namespace TestDrivingMVC.Controller.Customer {
         public ActionResult Step2(int id) {
             return View("Step2", _customerService.GetById(1));
         }
+
+        [HttpGet]
+        public ActionResult Create() {
+            return View("Create");
+        }
     }
 }
