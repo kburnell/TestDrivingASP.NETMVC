@@ -12,8 +12,8 @@ namespace TestDrivingMVC.Web.Test.UI.Views.Customer {
 
         [TestCleanup]
         public void TestCleanUp() {
-            //_browser.Close();
-            //_browser.Dispose();
+            _browser.Close();
+            _browser.Dispose();
         }
 
         [TestMethod]
