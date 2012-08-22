@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿
+using System.Web.Mvc;
 using TestDrivingMVC.Common.Interfaces.Service;
 
 namespace TestDrivingMVC.Controller.Customer {
@@ -21,7 +22,7 @@ namespace TestDrivingMVC.Controller.Customer {
 
         [HttpPost]
         public ActionResult Index(Common.Domain.Customer customer) {
-            return RedirectToAction("Step2", "Customer", new {id = customer.Id});
+            return RedirectToAction("Step2", "Customer", new { id = customer.Id });
         }
 
         [HttpGet]

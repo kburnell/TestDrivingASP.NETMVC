@@ -9,8 +9,10 @@ namespace TestDrivingMVC.Web.Test.UI.Views.Customer {
         private const string Url = "http://localhost:11074/";
         private IE _browser;
 
-        [TestCleanup]
-        public void TestCleanUp() { }
+        [TestInitialize]
+        public void TestInitialize() {
+            _browser = new IE(Url);
+        }
 
     }
 }

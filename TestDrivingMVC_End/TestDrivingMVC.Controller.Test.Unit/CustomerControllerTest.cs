@@ -1,11 +1,10 @@
 ﻿using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvcContrib.TestHelper;
-using Rhino.Mocks;
+using Should;
 using TestDrivingMVC.Common.Interfaces.Service;
 using TestDrivingMVC.Controller.Customer;
 using TestDrivingMVC.Test.Shared.Fakes.Service;
-using Should;
 
 namespace TestDrivingMVC.Controller.Test.Unit {
 
@@ -36,10 +35,9 @@ namespace TestDrivingMVC.Controller.Test.Unit {
             //Arrange
             CustomerController controller = new CustomerController(_loggingServiceFake, _customerServiceFake);
             //Act
-            ActionResult result = controller.Index(1);
+            ViewResult result = (ViewResult)controller.Index(1);
             //Assert
-            //Assert.IsInstanceOfType(((ViewResult) result).Model, typeof (Common.Domain.Customer));
-            ((ViewResult) result).Model.ShouldBeType<Common.Domain.Customer>();
+            result.Model.ShouldBeType<Common.Domain.Customer>();
         }
 
         [TestMethod]
@@ -47,28 +45,11 @@ namespace TestDrivingMVC.Controller.Test.Unit {
             //Arrange
             CustomerController controller = new CustomerController(_loggingServiceFake, _customerServiceFake);
             //Act
-            ActionResult result = controller.Index(new Common.Domain.Customer {Id = 1});
+            ActionResult result = controller.Index(new Common.Domain.Customer { Id = 1 });
             //Assert
             result.AssertActionRedirect().ToAction("Step2");
         }
 
-        [TestMethod]
-        public void Index_ShouldReturn_ViewWithModelofType_Customer_With_Idof_1_WhenPassed_1() {
-            //Arrange
-            // - Fake (No need to mock logging service)
-            ILoggingService loggingServiceFake = new LoggingServiceFake();
-            // - Mocks
-            MockRepository mockRepo = new MockRepository();
-            ICustomerService customerServiceMock = mockRepo.StrictMock<ICustomerService>();
-            customerServiceMock.Expect(x => x.GetById(1)).Return(new Common.Domain.Customer {Id = 1}).Repeat.Once();
-            CustomerController controller = new CustomerController(loggingServiceFake, customerServiceMock);
-            mockRepo.ReplayAll();
-            //Act
-            Common.Domain.Customer result = (Common.Domain.Customer)((ViewResult)controller.Index(1)).Model;
-            //Assert
-            mockRepo.VerifyAll();
-            result.Id.ShouldEqual(1);
-        }
 
     }
 }

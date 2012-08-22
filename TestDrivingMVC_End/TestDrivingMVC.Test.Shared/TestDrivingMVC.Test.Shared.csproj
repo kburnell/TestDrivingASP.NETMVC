@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{17C3CA24-9648-4D46-80B2-ABEEAAB50EDD}</ProjectGuid>
+    <ProjectGuid>{A6841425-089C-4940-8C85-9CB43CC6BA6A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TestDrivingMVC.Test.Shared</RootNamespace>

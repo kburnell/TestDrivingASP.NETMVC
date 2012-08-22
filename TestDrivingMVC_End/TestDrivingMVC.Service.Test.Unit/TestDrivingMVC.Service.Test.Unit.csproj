@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E3F8D668-C77C-40E9-A7B3-304D4AA06023}</ProjectGuid>
+    <ProjectGuid>{84882944-686C-4253-B578-7EACE37C3E2F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TestDrivingMVC.Service.Test.Unit</RootNamespace>
@@ -51,17 +51,6 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CustomerServiceTest.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TestDrivingMVC.Common\TestDrivingMVC.Common.csproj">
-      <Project>{CB05D8D7-9432-4DD0-9476-4C832F107AD9}</Project>
-      <Name>TestDrivingMVC.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TestDrivingMVC.Service\TestDrivingMVC.Service.csproj">
-      <Project>{E2AC6EE6-3F6D-45E6-9634-935C8F305D2D}</Project>
-      <Name>TestDrivingMVC.Service</Name>
-    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

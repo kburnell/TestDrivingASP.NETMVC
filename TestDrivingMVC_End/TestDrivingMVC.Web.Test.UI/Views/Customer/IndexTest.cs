@@ -10,40 +10,34 @@ namespace TestDrivingMVC.Web.Test.UI.Views.Customer {
         private const string Url = "http://localhost:11074/";
         private IE _browser;
 
-        [TestCleanup]
-        public void TestCleanUp() {
-            _browser.Close();
-            _browser.Dispose();    
+        [TestInitialize]
+        public void TestInitialize() {
+            _browser = new IE(Url);
         }
 
+        [TestCleanup]
+        public void TestCleanUp() { }
+
         [TestMethod]
-        public void CustomerIndex_ShouldBeDisplayed_AsThe_DefaultPage() {
-            //Arrange
-            string expectedTitle = "Customer Index";
-            //Act
-            _browser = new IE(Url);
-            //Assert
-            _browser.Title.ShouldEqual(expectedTitle);
+        public void CustomerIndex_ShouldBeDisplayed_AsDefault_View() {
+            //Act & Assert
+            _browser.Title.ShouldEqual("Customer Index");
         }
 
         [TestMethod]
         public void CustomerIndex_ShouldContain_DisplayFor_FirstName() {
-            //Arrange
-            _browser = new IE(Url);
+            //Act
             Label result = _browser.Label("firstName");
             //Assert
             result.ShouldNotBeNull();
         }
 
         [TestMethod]
-        public void Clicking_Next_ShouldDisplayThe_Step2Page() {
-            //Arrange
-            string expectedTitle = "Step 2";
-            _browser = new IE(Url);
+        public void Clicking_Next_ShouldDisplayThe_Step2_Page() {
             //Act
             _browser.Button("next").Click();
             //Assert
-            _browser.Title.ShouldEqual(expectedTitle);
+            _browser.Title.ShouldEqual("Step 2");
         }
 
     }

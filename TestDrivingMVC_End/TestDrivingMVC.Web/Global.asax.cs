@@ -17,7 +17,7 @@ namespace TestDrivingMVC.Web {
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             WireUpDependencyInjection();
-            SetControllerFactory();
+            ControllerBuilder.Current.SetControllerFactory(new ControllerFactory());
         }
 
         /// <summary>
@@ -33,10 +33,6 @@ namespace TestDrivingMVC.Web {
                 x.AssembliesFromApplicationBaseDirectory();
                 x.WithDefaultConventions();
             }));
-        }
-        
-        private void SetControllerFactory() {
-            ControllerBuilder.Current.SetControllerFactory(new ControllerFactory());
         }
 
     }

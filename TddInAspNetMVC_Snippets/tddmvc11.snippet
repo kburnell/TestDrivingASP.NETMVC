@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>TDD_MVC_11</Title>
+      <Author>Skyline</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>
+        tddmvc11
+      </Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="csharp"><![CDATA[[TestMethod]
+        public void FirstNameIsRequired_ValidationMessage_ShouldBeDisplayed_WhenClickingCreate_WithoutFillingIn_FirstName_Field() {
+            //Arrange
+            _browser.Button("create").Click();
+            //Act
+            Span result = _browser.Span(Find.By("for", "FirstName"));
+            //Assert
+            result.InnerHtml.ShouldEqual("First Name is required");
+        }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
