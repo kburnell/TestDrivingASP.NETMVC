@@ -5,6 +5,8 @@ namespace TestDrivingMVC.Controller.Customer {
 
     public class CustomerController : System.Web.Mvc.Controller {
 
+        //[Voice of James Earl Jones as the Enterprise Architect]
+        //Every controller must log it's in action's when in debug mode
         private readonly ILoggingService _logger;
         private readonly ICustomerService _customerService;
 
