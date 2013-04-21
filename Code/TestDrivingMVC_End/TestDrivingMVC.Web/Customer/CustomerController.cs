@@ -12,9 +12,10 @@ namespace TestDrivingMVC.Web.Customer {
         private readonly ILoggingService _logger;
         private readonly ICustomerService _customerService;
 
-        public CustomerController() {
-            _logger = new LoggingService();
-            _customerService = new CustomerService(_logger);
+
+        public CustomerController(ILoggingService logger, ICustomerService customerService) {
+            _logger = logger;
+            _customerService = customerService;
         }
 
         [HttpGet]

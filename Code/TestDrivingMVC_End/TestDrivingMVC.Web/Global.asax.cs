@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using StructureMap;
+using TestDrivingMVC.Web.Utility;
 
 namespace TestDrivingMVC.Web {
 
@@ -16,6 +17,7 @@ namespace TestDrivingMVC.Web {
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             WireUpDependencyInjection();
+            ControllerBuilder.Current.SetControllerFactory(new ControllerFactory());
         }
 
         /// <summary>

@@ -71,6 +71,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TestDrivingMVC.Core\TestDrivingMVC.Core.csproj">
+      <Project>{0f9a37cd-bc57-49ae-9482-8eea49db0823}</Project>
+      <Name>TestDrivingMVC.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TestDrivingMVC.Service\TestDrivingMVC.Service.csproj">
       <Project>{E2AC6EE6-3F6D-45E6-9634-935C8F305D2D}</Project>
       <Name>TestDrivingMVC.Service</Name>

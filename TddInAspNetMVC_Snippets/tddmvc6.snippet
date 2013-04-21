@@ -23,7 +23,7 @@
             //Act
             ViewResult result = (ViewResult)controller.Index(1);
             //Assert
-            Assert.IsInstanceOfType(result.Model, typeof(Common.Domain.Customer));
+            Assert.IsInstanceOfType(result.Model, typeof(Core.Entities.Customer));
         }]]></Code>
     </Snippet>
   </CodeSnippet>
