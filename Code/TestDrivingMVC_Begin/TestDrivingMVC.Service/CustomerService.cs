@@ -1,7 +1,7 @@
 ﻿using System;
-using TestDrivingMVC.Common.Domain;
 using TestDrivingMVC.Common.Interfaces.Service;
-using TestDrivingMVC.Common.Utility;
+using TestDrivingMVC.Core.Entities;
+using TestDrivingMVC.Service.Interfaces.Service;
 
 namespace TestDrivingMVC.Service {
 
@@ -9,8 +9,8 @@ namespace TestDrivingMVC.Service {
 
         readonly ILoggingService _logger;
 
-        public CustomerService() {
-            _logger = Resolver.GetConcreteInstanceOf<ILoggingService>();
+        public CustomerService(ILoggingService loggingService) {
+            _logger = loggingService;
         }
 
         public Customer GetById(long id) {

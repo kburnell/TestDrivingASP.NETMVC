@@ -1,8 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TestDrivingMVC.Common.Interfaces.Service;
+using TestDrivingMVC.Service.Interfaces.Service;
 using TestDrivingMVC.Test.Shared.Fakes.Service;
 
-namespace TestDrivingMVC.Controller.Test.Unit {
+namespace TestDrivingMVC.Web.Test.Unit.Controllers {
 
     [TestClass]
     public class CustomerControllerTest {

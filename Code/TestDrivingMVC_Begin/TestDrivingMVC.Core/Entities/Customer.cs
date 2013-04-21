@@ -1,8 +1,7 @@
-﻿
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace TestDrivingMVC.Common.Domain {
+namespace TestDrivingMVC.Core.Entities {
 
     public class Customer {
 

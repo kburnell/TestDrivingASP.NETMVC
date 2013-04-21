@@ -1,5 +1,5 @@
-﻿using TestDrivingMVC.Common.Domain;
-using TestDrivingMVC.Common.Interfaces.Service;
+﻿using TestDrivingMVC.Core.Entities;
+using TestDrivingMVC.Service.Interfaces.Service;
 
 namespace TestDrivingMVC.Test.Shared.Fakes.Service {
 

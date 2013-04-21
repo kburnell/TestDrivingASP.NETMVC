@@ -128,6 +128,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Customer\CustomerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -214,17 +215,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TestDrivingMVC.Common.Domain\TestDrivingMVC.Common.Domain.csproj">
-      <Project>{6FE3E870-CFAE-4741-AD0C-83F8202FBB84}</Project>
-      <Name>TestDrivingMVC.Common.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TestDrivingMVC.Common\TestDrivingMVC.Common.csproj">
-      <Project>{CB05D8D7-9432-4DD0-9476-4C832F107AD9}</Project>
-      <Name>TestDrivingMVC.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TestDrivingMVC.Controller\TestDrivingMVC.Controller.csproj">
-      <Project>{0ed56b9d-ed01-488c-8718-462cdfc5328c}</Project>
-      <Name>TestDrivingMVC.Controller</Name>
+    <ProjectReference Include="..\TestDrivingMVC.Core\TestDrivingMVC.Core.csproj">
+      <Project>{0F9A37CD-BC57-49AE-9482-8EEA49DB0823}</Project>
+      <Name>TestDrivingMVC.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\TestDrivingMVC.Service\TestDrivingMVC.Service.csproj">
       <Project>{E2AC6EE6-3F6D-45E6-9634-935C8F305D2D}</Project>

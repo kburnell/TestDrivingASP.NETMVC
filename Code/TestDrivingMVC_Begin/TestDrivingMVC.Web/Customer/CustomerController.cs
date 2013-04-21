@@ -1,9 +1,11 @@
 ﻿using System.Web.Mvc;
 using TestDrivingMVC.Common.Interfaces.Service;
+using TestDrivingMVC.Service;
+using TestDrivingMVC.Service.Interfaces.Service;
 
-namespace TestDrivingMVC.Controller.Customer {
+namespace TestDrivingMVC.Web.Customer {
 
-    public class CustomerController : System.Web.Mvc.Controller {
+    public class CustomerController : Controller {
 
         //[Voice of James Earl Jones as the Enterprise Architect]
         //Every controller must log it's in action's when in debug mode
@@ -11,8 +13,8 @@ namespace TestDrivingMVC.Controller.Customer {
         private readonly ICustomerService _customerService;
 
         public CustomerController() {
-            _logger = Common.Utility.Resolver.GetConcreteInstanceOf<ILoggingService>();
-            _customerService = Common.Utility.Resolver.GetConcreteInstanceOf<ICustomerService>();
+            _logger = new LoggingService();
+            _customerService = new CustomerService(_logger);
         }
 
         [HttpGet]
@@ -22,7 +24,7 @@ namespace TestDrivingMVC.Controller.Customer {
         }
 
         [HttpPost]
-        public ActionResult Index(Common.Domain.Customer customer) {
+        public ActionResult Index(Core.Entities.Customer customer) {
             return RedirectToAction("Step2", "Customer", new { id = customer.Id });
         }
 

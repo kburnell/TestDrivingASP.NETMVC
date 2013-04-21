@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TestDrivingMVC.Common.Domain")]
+[assembly: AssemblyTitle("TestDrivingMVC.Core")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Skyline Technologies")]
-[assembly: AssemblyProduct("TestDrivingMVC.Common.Domain")]
-[assembly: AssemblyCopyright("Copyright © Skyline Technologies 2012")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("TestDrivingMVC.Core")]
+[assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("ffb64af8-e54d-4f51-af4a-7c0f48b61dd3")]
+[assembly: Guid("a8b918c3-cb2b-4bce-8cfb-2c22622a711f")]
 
 // Version information for an assembly consists of the following four values:
 //
