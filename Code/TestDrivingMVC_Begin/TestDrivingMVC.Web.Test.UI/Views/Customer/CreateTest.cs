@@ -1,19 +1,24 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using WatiN.Core;
+﻿using System;
+using NUnit.Framework;
+using OpenQA.Selenium;
 
 namespace TestDrivingMVC.Web.Test.UI.Views.Customer {
 
-    [TestClass]
+    [TestFixture]
     public class CreateTest {
 
-        private const string Url = "http://localhost:11074/Customer/Create";
-        private IE _browser;
+        private const string url = "http://localhost/TestDrivingMVC.Web/Customer/Create";
+        private IWebDriver _webDriver;
 
-        [TestInitialize]
-        public void TestInitialize() {
-            _browser = new IE(Url);
+        [TearDown]
+        public void TearDown() {
+            try {
+                // Stop the web driver
+                _webDriver.Quit();
+            }
+            catch (Exception) {}
         }
-        
-    }
 
+
+    }
 }

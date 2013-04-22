@@ -16,12 +16,16 @@
       </Shortcut>
     </Header>
     <Snippet>
-      <Code Language="csharp"><![CDATA[[TestMethod]
-        public void Clicking_Next_ShouldDisplayThe_Step2_Page() {
+      <Code Language="csharp"><![CDATA[[Test]
+        public void Page_ShouldContain_DisplayFor_FirstName_Chrome()
+        {
+            //Arrange
+            _webDriver = WebDriver.InitializeChrome();
+            _webDriver.Navigate().GoToUrl("http://localhost/TestDrivingMVC.Web/Customer/Index/1");
             //Act
-            _browser.Button("next").Click();
+            IWebElement result = _webDriver.FindElements(By.TagName("label")).FirstOrDefault(x => x.Text == "First Name");
             //Assert
-            _browser.Title.ShouldEqual("Step 2");
+            result.Should().NotBeNull();
         }]]></Code>
     </Snippet>
   </CodeSnippet>

@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvcContrib.TestHelper;
+using FluentAssertions;
+using NUnit.Framework;
 using TestDrivingMVC.Common.Interfaces.Service;
 using TestDrivingMVC.Service.Interfaces.Service;
 using TestDrivingMVC.Test.Shared.Fakes.Service;
@@ -8,20 +9,20 @@ using TestDrivingMVC.Web.Customer;
 
 namespace TestDrivingMVC.Web.Test.Unit.Controllers {
 
-    [TestClass]
+    [TestFixture]
     public class CustomerControllerTest {
 
         private static ILoggingService _loggingServiceFake;
         private static ICustomerService _customerServiceFake;
 
-        [ClassInitialize]
-        public static void ClassInitialize(TestContext context) {
+        [SetUp]
+        public static void ClassInitialize() {
             _loggingServiceFake = new LoggingServiceFake();
             _customerServiceFake = new CustomerServiceFake();
         }
 
 
-        [TestMethod]
+        [Test]
         public void Index_ShouldReturn_ViewNamed_Index() {
             //Arrange
             CustomerController controller = new CustomerController(_loggingServiceFake, _customerServiceFake);
@@ -31,7 +32,7 @@ namespace TestDrivingMVC.Web.Test.Unit.Controllers {
             result.AssertViewRendered().ForView("Index");
         }
 
-        [TestMethod]
+        [Test]
         public void Index_ShouldReturn_ViewWithModelofType_Customer()
         {
             //Arrange
@@ -39,7 +40,19 @@ namespace TestDrivingMVC.Web.Test.Unit.Controllers {
             //Act
             ViewResult result = (ViewResult)controller.Index(1);
             //Assert
-            Assert.IsInstanceOfType(result.Model, typeof(Core.Entities.Customer));
+            result.Model.Should().BeOfType<Core.Entities.Customer>();
+            //Assert.IsInstanceOfType(result.Model, typeof(Core.Entities.Customer));
+        }
+
+        [Test]
+        public void IndexPost_ShouldRedirectTo_Step2()
+        {
+            //Arrange
+            CustomerController controller = new CustomerController(_loggingServiceFake, _customerServiceFake);
+            //Act
+            ActionResult result = controller.Index(new Core.Entities.Customer { Id = 1 });
+            //Assert
+            result.AssertActionRedirect().ToAction("Step2");
         }
         
 

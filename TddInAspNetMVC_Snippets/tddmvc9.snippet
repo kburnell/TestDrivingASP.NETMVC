@@ -16,13 +16,25 @@
       </Shortcut>
     </Header>
     <Snippet>
-      <Code Language="csharp"><![CDATA[[TestMethod]
-      public void CustomerIndex_ShouldContain_DisplayFor_FirstName() {
-          //Act
-          Label result = _browser.Label("firstName");
-          //Assert
-          result.ShouldNotBeNull();
-      }]]></Code>
+      <Code Language="csharp"><![CDATA[[Test]
+        public void CustomerIndex_ShouldBeDisplayed_AsDefault_View_FireFox() {
+            //Arrange
+            _webDriver = WebDriver.InitializeFireFox();
+            //Act
+            _webDriver.Navigate().GoToUrl("http://localhost/TestDrivingMVC.Web/");
+            //Assert
+            _webDriver.Title.Should().Be("Customer Index");
+        }
+
+        [Test]
+        public void CustomerIndex_ShouldBeDisplayed_AsDefault_View_IE() {
+            //Arrange
+            _webDriver = WebDriver.InitializeInternetExplorer();
+            //Act
+            _webDriver.Navigate().GoToUrl("http://localhost/TestDrivingMVC.Web/");
+            //Assert
+            _webDriver.Title.Should().Be("Customer Index");
+        }]]></Code>
     </Snippet>
   </CodeSnippet>
 </CodeSnippets>

@@ -16,10 +16,14 @@
       </Shortcut>
     </Header>
     <Snippet>
-      <Code Language="csharp"><![CDATA[[TestMethod]
-        public void CustomerIndex_ShouldBeDisplayed_AsDefault_View() {
-            //Act & Assert
-            _browser.Title.ShouldEqual("Customer Index");
+      <Code Language="csharp"><![CDATA[[Test]
+        public void CustomerIndex_ShouldBeDisplayed_AsDefault_View_Chrome() {
+            //Arrange
+            _webDriver = WebDriver.InitializeChrome();
+            //Act
+            _webDriver.Navigate().GoToUrl("http://localhost/TestDrivingMVC.Web/");
+            //Assert
+            _webDriver.Title.Should().Be("Customer Index");
         }]]></Code>
     </Snippet>
   </CodeSnippet>

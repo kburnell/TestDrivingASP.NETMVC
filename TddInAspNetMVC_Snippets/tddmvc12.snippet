@@ -16,15 +16,18 @@
       </Shortcut>
     </Header>
     <Snippet>
-      <Code Language="csharp"><![CDATA[[TestMethod]
-        public void FirstNameIsRequired_ValidationMessage_ShouldNotBeDisplayed_WhenClickingCreate_With_FirstName_Field_FilledIn() {
+      <Code Language="csharp"><![CDATA[[Test]
+        public void FirstNameIsRequired_ValidationMessage_ShouldBeDisplayed_WhenClickingCreate_WithoutFillingIn_FirstName_Field_Chrome()
+        {
             //Arrange
-            _browser.TextField("FirstName").TypeText("Joe");
-            _browser.Button("create").Click();
+            _webDriver = WebDriver.InitializeChrome();
+            _webDriver.Navigate().GoToUrl(url);
+            _webDriver.FindElement(By.Id("create")).Click();
             //Act
-            Span result = _browser.Span(Find.By("for", "FirstName"));
+            var result = _webDriver.FindElements(By.TagName("span")).FirstOrDefault(x => x.Text == "First Name is required");
             //Assert
-            result.Exists.ShouldBeFalse();
+            result.Should().NotBeNull();
+            result.Displayed.Should().BeTrue();
         }]]></Code>
     </Snippet>
   </CodeSnippet>

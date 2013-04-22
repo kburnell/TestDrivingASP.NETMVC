@@ -1,18 +1,24 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using WatiN.Core;
+﻿using System;
+using NUnit.Framework;
+using OpenQA.Selenium;
+using Selenium;
 
 namespace TestDrivingMVC.Web.Test.UI.Views.Customer {
 
-    [TestClass]
+    [TestFixture]
     public class IndexTest {
 
-        private const string Url = "http://localhost:11074/";
-        private IE _browser;
+        private IWebDriver _webDriver;
 
-        [TestInitialize]
-        public void TestInitialize() {
-            _browser = new IE(Url);
+        [TearDown]
+        public void TearDown() {
+            try {
+                // Stop the web driver
+                _webDriver.Quit();
+            }
+            catch (Exception) {}
         }
 
+        
     }
 }

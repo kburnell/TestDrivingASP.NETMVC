@@ -1,21 +1,21 @@
 ﻿using System.Web.Routing;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvcContrib.TestHelper;
+using NUnit.Framework;
 using TestDrivingMVC.Web.Customer;
 using TestDrivingMVC.Web.Utility;
 
 namespace TestDrivingMVC.Web.Test.Unit.App_Start {
 
-    [TestClass]
+    [TestFixture]
     public class RouteTester {
 
-        [ClassInitialize]
-        public static void ClassInitialize(TestContext context) {
+        [TestFixtureSetUp]
+        public static void ClassInitialize() {
             RouteCollection routes = RouteTable.Routes;
             RouteProvider.ConfigureRoutes(routes);
         }
 
-        [TestMethod]
+        [Test]
         public void RequestGoingTo_Whack_ShouldMapTo_CustomerIndex() {
             //Arrange
             string url = "~/";
@@ -24,7 +24,7 @@ namespace TestDrivingMVC.Web.Test.Unit.App_Start {
         }
 
 
-        [TestMethod]
+        [Test]
         public void RequestTo_Wack_TraceAxd_ShouldBe_Ignored()
         {
             //Arrange

@@ -21,7 +21,7 @@
             //Arrange
             CustomerController controller = new CustomerController(_loggingServiceFake, _customerServiceFake);
             //Act
-            ActionResult result = controller.Index(new Common.Domain.Customer { Id = 1 });
+            ActionResult result = controller.Index(new Core.Entities.Customer { Id = 1 });
             //Assert
             result.AssertActionRedirect().ToAction("Step2");
         }]]></Code>

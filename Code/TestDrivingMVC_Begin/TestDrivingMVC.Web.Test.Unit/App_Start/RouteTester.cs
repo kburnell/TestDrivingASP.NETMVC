@@ -1,14 +1,14 @@
 ﻿using System.Web.Routing;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using TestDrivingMVC.Web.Utility;
 
 namespace TestDrivingMVC.Web.Test.Unit.App_Start {
 
-    [TestClass]
+    [TestFixture]
     public class RouteTester {
 
-        [ClassInitialize]
-        public static void ClassInitialize(TestContext context) {
+        [TestFixtureSetUp]
+        public static void ClassInitialize() {
             RouteCollection routes = RouteTable.Routes;
             RouteProvider.ConfigureRoutes(routes);
         }

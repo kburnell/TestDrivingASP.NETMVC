@@ -5,27 +5,28 @@
       <SnippetTypes>
         <SnippetType>Expansion</SnippetType>
       </SnippetTypes>
-      <Title>TDD_MVC_11</Title>
+      <Title>TDD_MVC_13</Title>
       <Author>Skyline</Author>
       <Description>
       </Description>
       <HelpUrl>
       </HelpUrl>
       <Shortcut>
-        tddmvc11
+        tddmvc13
       </Shortcut>
     </Header>
     <Snippet>
       <Code Language="csharp"><![CDATA[[Test]
-        public void Clicking_Next_ShouldDisplayThe_Step2_Page_Chrome()
+        public void FirstNameIsRequired_ValidationMessage_ShouldNotBeDisplayed_WhenClickingCreate_With_FirstName_Field_FilledIn_Chrome()
         {
             //Arrange
             _webDriver = WebDriver.InitializeChrome();
-            _webDriver.Navigate().GoToUrl("http://localhost/TestDrivingMVC.Web/Customer/Index/1");
+            _webDriver.Navigate().GoToUrl(url);
+            _webDriver.FindElement(By.Id("create")).Click();
             //Act
-            _webDriver.FindElement(By.Id("next")).Click();
+            var result = _webDriver.FindElements(By.TagName("span")).FirstOrDefault(x => x.Text == "First Name is required");
             //Assert
-            _webDriver.Title.Should().Be("Step 2");
+            result.Should().BeNull();
         }]]></Code>
     </Snippet>
   </CodeSnippet>
